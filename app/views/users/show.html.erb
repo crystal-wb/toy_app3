@@ -11,15 +11,17 @@
 </p>
 <p>
   <strong>Posts:</strong>
-  
+  <%if @user.microposts%>
     <%text=@user.microposts.order("created_at DESC")%>
-  <%text.each do |t|%>
-  <br>
-  <p><%=t.content%></p>
-  <p><%=t.created_at.strftime("%b %d, %Y")%></p>
-  <br>
+    <%text.each do |t|%>
+    <br>
+    <p><%=t.content%></p>
+    <p><%=t.created_at.strftime("%b %d, %Y")%></p>
+    <br>
+    <%end%>
   <%end%>
 </p>
+<%= link_to "New Post", "/microposts/new?id=#{@user.id}" %>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>

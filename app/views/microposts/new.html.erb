@@ -2,4 +2,7 @@
 
 <%= render 'form', micropost: @micropost %>
 
-<%= link_to 'Back', microposts_path %>
+<%= link_to 'More Posts', microposts_path %>
+
+<%= link_to 'Back', User.find(params[:id])%>
+
